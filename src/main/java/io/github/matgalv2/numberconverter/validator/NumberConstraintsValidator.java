@@ -12,12 +12,10 @@ public class NumberConstraintsValidator implements ConstraintValidator<NumberCon
 
     @Override
     public boolean isValid(Data data, ConstraintValidatorContext context) {
-        //TODO: simplify expression
-        if (data.getValue() < 0)
-            return false;
-        else if(data.getType() == ConversionType.ROMAN_NUMERAL && data.getValue() > RomanNumeral.MAXIMAL_NUMBER)
-            return false;
-        else
-            return true;
+
+        boolean lowerThanZero = data.getValue() < 0;
+        boolean romanNumeralCase = data.getType() == ConversionType.ROMAN_NUMERAL && data.getValue() > RomanNumeral.MAXIMAL_NUMBER;
+
+        return !(lowerThanZero || romanNumeralCase);
     }
 }

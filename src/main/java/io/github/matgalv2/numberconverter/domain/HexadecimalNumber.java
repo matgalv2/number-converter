@@ -16,9 +16,6 @@ public class HexadecimalNumber implements AbstractNumber {
 
 
     public static Optional<HexadecimalNumber> of(long value){
-        if (value >= 0)
-            return Optional.of(new HexadecimalNumber(String.format("%x", value)));
-        else
-            return Optional.empty();
+        return value >= 0 ? Optional.of(new HexadecimalNumber(String.format("%x", value))) : Optional.empty();
     }
 }

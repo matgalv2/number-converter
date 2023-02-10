@@ -22,15 +22,15 @@ public class RomanNumeral implements AbstractNumber {
             return Optional.empty();
     }
 
-    private static String longToRoman(long value){
+    private static String longToRoman(long number){
         final int [] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
         final String [] romanLetters = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
         StringBuilder roman = new StringBuilder();
-        for(int i=0;i<values.length;i++)
+        for(int i=0; i < values.length; i++)
         {
-            while( value >= values[i])
+            while(number >= values[i])
             {
-                value = value - values[i];
+                number = number - values[i];
                 roman.append(romanLetters[i]);
             }
         }

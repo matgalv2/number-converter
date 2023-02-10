@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {NumberConstraintsValidator.class})
 public @interface NumberConstraints {
-    String message() default "Constraint 1- Value has to be positive. Constraint 2 - roman numerals works only for numbers in range (0, " + RomanNumeral.MAXIMAL_NUMBER + ")";
+    String message() default "Constraint 1 - Value has to be positive. Constraint 2 - roman numerals works only for numbers in range (0, " + RomanNumeral.MAXIMAL_NUMBER + ")";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
