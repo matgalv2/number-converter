@@ -12,7 +12,8 @@ import javax.validation.ConstraintValidatorContext;
 public class NumberConstraintsValidator implements ConstraintValidator<NumberConstraints, Data> {
 
     @Override
-    public void initialize(NumberConstraints numberConstraints) {}
+    public void initialize(NumberConstraints numberConstraints) {
+    }
 
     @Override
     public boolean isValid(Data data, ConstraintValidatorContext context) {

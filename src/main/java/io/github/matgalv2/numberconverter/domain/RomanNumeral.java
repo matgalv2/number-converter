@@ -11,25 +11,23 @@ public class RomanNumeral implements AbstractNumber {
 
     private final String value;
 
-    private RomanNumeral(String value){
+    private RomanNumeral(String value) {
         this.value = value;
     }
 
-    public static Optional<RomanNumeral> of(long value){
-        if(value >= 0 && value <= MAXIMAL_NUMBER)
+    public static Optional<RomanNumeral> of(long value) {
+        if (value >= 0 && value <= MAXIMAL_NUMBER)
             return Optional.of(new RomanNumeral(longToRoman(value)));
         else
             return Optional.empty();
     }
 
-    private static String longToRoman(long number){
-        final int [] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
-        final String [] romanLetters = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+    private static String longToRoman(long number) {
+        final int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        final String[] romanLetters = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         StringBuilder roman = new StringBuilder();
-        for(int i=0; i < values.length; i++)
-        {
-            while(number >= values[i])
-            {
+        for (int i = 0; i < values.length; i++) {
+            while (number >= values[i]) {
                 number = number - values[i];
                 roman.append(romanLetters[i]);
             }

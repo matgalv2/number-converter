@@ -10,12 +10,12 @@ public class HexadecimalNumber implements AbstractNumber {
 
     private final String value;
 
-    private HexadecimalNumber(String value){
+    private HexadecimalNumber(String value) {
         this.value = value;
     }
 
 
-    public static Optional<HexadecimalNumber> of(long value){
+    public static Optional<HexadecimalNumber> of(long value) {
         return value >= 0 ? Optional.of(new HexadecimalNumber(String.format("%x", value))) : Optional.empty();
     }
 }

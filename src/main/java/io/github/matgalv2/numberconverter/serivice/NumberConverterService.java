@@ -17,7 +17,7 @@ public class NumberConverterService {
 
     public Optional<? extends AbstractNumber> convertNumber(Data data) {
 
-        if(data.getType().equals(ConversionType.HEXADECIMAL))
+        if (data.getType().equals(ConversionType.HEXADECIMAL))
             return HexadecimalNumber.of(data.getValue());
         else
             return RomanNumeral.of(data.getValue());
