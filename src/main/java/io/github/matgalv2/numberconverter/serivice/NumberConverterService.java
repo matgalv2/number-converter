@@ -14,7 +14,6 @@ import java.util.Optional;
 @Service
 public class NumberConverterService {
 
-
     public Optional<? extends AbstractNumber> convertNumber(Data data) {
 
         if (data.getType().equals(ConversionType.HEXADECIMAL))
@@ -22,12 +21,4 @@ public class NumberConverterService {
         else
             return RomanNumeral.of(data.getValue());
     }
-
-//    private Optional<HexadecimalNumber> convertToHexadecimal(long value){
-//        return HexadecimalNumber.of(value);
-//    }
-//
-//    private Optional<RomanNumeral> convertToRomanNumeral(long value){
-//        return RomanNumeral.of(value);
-//    }
 }
