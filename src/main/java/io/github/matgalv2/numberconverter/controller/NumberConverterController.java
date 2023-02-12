@@ -1,7 +1,7 @@
 package io.github.matgalv2.numberconverter.controller;
 
 import io.github.matgalv2.numberconverter.dto.Data;
-import io.github.matgalv2.numberconverter.serivice.NumberConverterService;
+import io.github.matgalv2.numberconverter.service.NumberConverterService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

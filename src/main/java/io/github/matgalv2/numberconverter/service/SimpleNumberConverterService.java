@@ -1,4 +1,4 @@
-package io.github.matgalv2.numberconverter.serivice;
+package io.github.matgalv2.numberconverter.service;
 
 
 import io.github.matgalv2.numberconverter.common.ConversionType;
@@ -12,8 +12,9 @@ import java.util.Optional;
 
 
 @Service
-public class NumberConverterService {
+public class SimpleNumberConverterService implements NumberConverterService {
 
+    @Override
     public Optional<? extends AbstractNumber> convertNumber(Data data) {
 
         if (data.getType().equals(ConversionType.HEXADECIMAL))
