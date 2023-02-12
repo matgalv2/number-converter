@@ -8,6 +8,8 @@ import java.util.Optional;
 public class RomanNumeral implements AbstractNumber {
 
     public static final int MAXIMAL_NUMBER = 3999;
+    private static final int [] ROMAN_VALUES = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    private static final String [] ROMAN_LETTERS = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
     private final String value;
 
@@ -23,13 +25,11 @@ public class RomanNumeral implements AbstractNumber {
     }
 
     private static String longToRoman(long number) {
-        final int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        final String[] romanLetters = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         StringBuilder roman = new StringBuilder();
-        for (int i = 0; i < values.length; i++) {
-            while (number >= values[i]) {
-                number = number - values[i];
-                roman.append(romanLetters[i]);
+        for (int i = 0; i < ROMAN_VALUES.length; i++) {
+            while (number >= ROMAN_VALUES[i]) {
+                number = number - ROMAN_VALUES[i];
+                roman.append(ROMAN_LETTERS[i]);
             }
         }
         return roman.toString();
