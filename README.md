@@ -1,6 +1,6 @@
 # Number converter
 Simple REST application that converts decimal numbers into hexadecimals or roman numerals.
-To run application read [Quick start.md](doc:Quick start.md).
+To run application read "Quick start.md".
 
 ## API 
 ### endpoints:
