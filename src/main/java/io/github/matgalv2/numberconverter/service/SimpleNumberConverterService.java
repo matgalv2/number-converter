@@ -8,18 +8,28 @@ import io.github.matgalv2.numberconverter.domain.RomanNumeral;
 import io.github.matgalv2.numberconverter.dto.Data;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 
 
 @Service
 public class SimpleNumberConverterService implements NumberConverterService {
+    private final Map<ConversionType, Function<Long, Optional<? extends AbstractNumber>>> mapping;
+
+    public SimpleNumberConverterService() {
+        mapping = new HashMap<>();
+        mapping.put(ConversionType.HEXADECIMAL, HexadecimalNumber::of);
+        mapping.put(ConversionType.ROMAN_NUMERAL, RomanNumeral::of);
+    }
 
     @Override
     public Optional<? extends AbstractNumber> convertNumber(Data data) {
-
-        if (data.getType().equals(ConversionType.HEXADECIMAL))
-            return HexadecimalNumber.of(data.getValue());
+        ConversionType type = data.getType();
+        if (mapping.containsKey(type))
+            return mapping.get(type).apply(data.getValue());
         else
-            return RomanNumeral.of(data.getValue());
+            return Optional.empty();
     }
 }
